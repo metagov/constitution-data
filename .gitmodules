@@ -1,3 +1,4 @@
-[submodule "template"]
+[submodule "constitution-template"]
 	path = template
 	url = https://github.com/metagov/constitution-template
+	branch = main
