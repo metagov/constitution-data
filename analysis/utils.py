@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -16,7 +17,7 @@ def load_airtable():
     """Load Airtable base. Requires editor access to the Airtable and saving the corresponding API key to api_key.txt"""
     
     BASE_ID = 'appx3e9Przn9iprkU' # The Govbase base ID
-    with open(r'..\api_key.txt', 'r') as f:
+    with open(os.path.join('..', 'api_key.txt'), 'r') as f:
         API_KEY = f.readline().strip()
         
     return airtable.Airtable(BASE_ID, API_KEY)
