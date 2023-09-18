@@ -12,6 +12,9 @@ DEFAULT_SIZE = (5, 5)
 sns.set(rc={"figure.figsize":DEFAULT_SIZE})
 sns.set(font_scale=1.25)
 
+if not os.path.isdir("figures"):
+    os.mkdir("figures")
+
 
 def load_airtable():
     """Load Airtable base. Requires editor access to the Airtable and saving the corresponding API key to api_key.txt"""
@@ -100,3 +103,6 @@ def plot_coded_column(df_all, col, label='', orient='h', size=None, plotType='ba
     if size is not None:
         sns.set(rc={"figure.figsize": DEFAULT_SIZE})
         sns.set(font_scale=1.25)
+
+    plt.savefig(os.path.join("figures", f"{col}.jpeg"), bbox_inches='tight', dpi=300)
+    plt.savefig(os.path.join("figures", f"{col}.pdf"), bbox_inches='tight')
